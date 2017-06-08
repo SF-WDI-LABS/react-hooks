@@ -16,8 +16,16 @@ Suppose that, instead of fetching our data using a hook, we fetch the data when 
 
 A lot. Components get rendered ALL THE TIME, and if we fetch that data every time it is rendered, we will be making a LOT of network requests... more than one per second. This is a great recipe for hitting your API request limits or having to pay Heroku for all of the traffic you're causing.
 
-As an example, put `console.log("hello!")` in the `render` function for your Todo component, then open your console and despair. It logs `hello!` incredibly often. Fetching data here would be just as painful, so we have to be mindful about how we do it.
+As an example, put `console.log("hello!")` in the `render` function for a simple component, then open your console and despair. It logs `hello!` incredibly often. Fetching data here would be just as painful, so we have to be mindful about how we do it.
 
 ## How do we use them?
 
 To fetch data only once, when the component is created initially, we can use the `onComponentMount` React hook. This is a hook that will be called, once, before the component is added to the page for the first time.
+
+There are 10 available hooks in the life of a React component. You can see a complete list [in the React documentation](https://facebook.github.io/react/docs/react-component.html#the-component-lifecycle). The most common ones that you will use, and that you'll want to understand, are:
+
+* `componentWillMount`, which is called when a component is created for the first time and is about to be inserted into the page for the first time ever.
+
+* `componentWillUnmount`, which is called when a component is about to be removed from the page forever.
+
+* `render` is also a lifecycle hook! It's the hook that lets us set what should be shown on the page when a component is being displayed, and is called every time the component is being re-rendered.
